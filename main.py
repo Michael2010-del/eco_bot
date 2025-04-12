@@ -1,14 +1,29 @@
 import telebot
+import random 
+from telebot.types import BotCommand
 
 
+bot=telebot.TeleBot("YOUR TOKEN)
 
+bot.set_my_commands([
+    BotCommand("start", "Запуск бота"),
+    BotCommand("sovet", "Отправляет рандомный экологический совет"),
+    BotCommand("fact", "Отправляет рандомный экологический факт"),
+    BotCommand("plastic", "Рассказывает про пластик"),
+    BotCommand("battery", "Рассказывает про батарейки"),
+    BotCommand("paper", "Рассказывает про бумагу"),
+    BotCommand("metal", "Рассказывает про метал"),
+    BotCommand("electronics", "Рассказывает про электронику"),
+    BotCommand("glass", "Рассказывает про стекло"),
+    BotCommand("organic", "Рассказывает про органику"),
+    BotCommand("map", "Карта с местами куда ты сможешь сдать различный мусор")
+])
 
-bot=telebot.TeleBot("YOUR TOKEN")
 
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, "🌎Привет, Я ECOBOT! Я помогу сделать мир чище.🌎")
+    bot.reply_to(message, "🌎Привет, Я ECOBOT! Я помогу сделать мир чище.В меню ты сможешь посмотреть что делает каждая команда.🌎")
 
 ECO_Tips = [
     "Замените пластиковые пакеты на многоразовые тканевые сумки.",
@@ -167,3 +182,5 @@ def send_welcome(message):
 
 
 bot.polling()
+
+
